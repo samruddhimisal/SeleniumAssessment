@@ -1,0 +1,43 @@
+package TestCases;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import Utils.Utilities;
+
+/*Use Cases to be covered
+1. Write a method that allows you to find the value of any cell on the grid
+2. Use the method to find the value of the cell at coordinates 2, 2 (staring at 0 in the top left corner)
+3. Assert that the value of the cell is "Ventosanzap"
+*/
+
+public class Test6 extends Utilities
+{
+
+	@Test
+	public void findTableCellValue()
+	{
+//		List<WebElement> table = driver.findElements(By.xpath(prop.getProperty("tbl_rows")));
+//		System.out.println("Row Count = "+table.size());
+		
+		WebElement table = driver.findElement(By.xpath(prop.getProperty("tb_table")));
+				
+                List<WebElement> rowsList = table.findElements(By.tagName(“tr”));
+
+                List<WebElement> columnsList = null;
+
+               for (WebElement row : rowsList) {
+                       System.out.println();
+                       columnsList = row.findElements(By.tagName(“td”));
+
+                        for (WebElement column : columnsList) {
+                               System.out.print(column.getText() + “, “);
+                       }
+
+           }
+               
+	}
+}

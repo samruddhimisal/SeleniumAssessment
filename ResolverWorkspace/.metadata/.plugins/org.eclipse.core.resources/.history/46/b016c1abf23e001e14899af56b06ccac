@@ -1,0 +1,65 @@
+package TestBase;
+
+import java.io.FileReader;
+import java.util.Properties;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
+import org.testng.asserts.SoftAssert;
+
+
+public class TestSetup 
+{
+	public static Properties xPathProp,paramProp;
+	public static String browser;
+	public static WebDriver driver; //static variable to be able access in static method
+	public static SoftAssert softAssert;
+    
+	
+	/* (1) static method so as to avoid creating an instance of the class and to call directly
+	 (2) all the properties defined in open and close browser methods are common for all tests*/
+    
+   @BeforeClass
+	public static void openBrowser() throws Throwable
+	{
+		softAssert = new SoftAssert();
+		xPathProp = new Properties();
+		paramProp = new Properties();
+		xPathProp.load(new FileReader("src\\PageObjects\\PO.properties"));
+		paramProp.load(new FileReader("src\\PageObjects\\Parameters.properties"));
+		browser = paramProp.getProperty("browser");
+		
+		//Chrome configuration settings
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		
+		if(browser.equalsIgnoreCase("chrome"))
+			driver=new ChromeDriver(options);
+		else if(browser.equalsIgnoreCase("mozilla"))
+			driver=new FirefoxDriver();
+		else if(browser.equalsIgnoreCase("edge"))
+			driver=new EdgeDriver();
+		
+//		open URL
+		driver.get(paramProp.getProperty("url")); 
+		
+//		maximize browser window
+		driver.manage().window().maximize();	
+		
+	}
+    @AfterClass
+    public void closeBrowser() throws Throwable 
+    {
+    	Thread.sleep(1000);
+    	//driver.close();
+    	if (driver != null) {
+            driver.quit();
+        }
+    }    
+ 
+}

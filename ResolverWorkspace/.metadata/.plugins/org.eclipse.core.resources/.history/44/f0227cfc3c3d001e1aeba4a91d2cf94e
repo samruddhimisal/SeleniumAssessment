@@ -1,0 +1,15 @@
+browser=chrome
+url=C:/Users/panth/Downloads/Resumes/Samruddhi/Resolver/QE-index.html
+
+#Test Page
+driver.findElement(By.className("navbar-brand"));
+
+#Input fields
+emailAddress = //input[@id='inputEmail'
+password = //input[@id='inputPassword'
+
+#Buttons
+signIn = //div[@id='test-1-div']/form/button
+primaryTest4Button = //div[@id='test-4-div']/button[1]
+secondaryTest4Button = //div[@id='test-4-div']/button[2]
+primaryTest5Button = //button[@id='test5-button']

@@ -1,0 +1,46 @@
+package TestCases;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.Reporter;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import Utils.Utilities;
+
+/* Use Cases to be covered
+1. In the test 2 div, assert that there are three values in the listgroup
+2. Assert that the second list item's value is set to "List Item 2"
+3. Assert that the second list item's badge value is 6
+*/
+
+public class Test2 extends Utilities
+{			
+	@Test
+	public void lovValidations() throws Throwable
+	{		
+
+		//Navigate to the home page
+		navigateToHome();
+		
+		//Scroll to the Test2 form
+		scrollToAForm(driver.findElement(By.xpath(prop.getProperty("h_test2Header"))));
+		
+		//Verify that there are three values in the listgroup
+		verifyListItemsCount();
+		
+		//Item number in the list for which text has to be verified
+		int itemNumber= Integer.parseInt(prop.getProperty("T2_inputListItemNum"));
+		//Assert that the second list item's value is set to "List Item 2"
+		verifyListItemText(itemNumber);
+		
+		verifyListItemBadgeValue(itemNumber);
+		
+
+	}	
+
+	
+	
+}

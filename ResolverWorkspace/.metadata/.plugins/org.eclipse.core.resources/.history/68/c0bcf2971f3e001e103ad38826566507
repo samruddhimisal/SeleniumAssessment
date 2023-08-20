@@ -1,0 +1,22 @@
+#T1 validation messages
+T1_emptyCredentialsMsg = Please fill out this field.
+T1_incompleteEmailMsg1 = Please include an '@' in the email address. 'abcd' is missing an '@'.
+T1_incompleteEmailMsg2 = Please enter a part following '@'. 'sam@' is incomplete.
+T1_incompleteEmailMsg3 = '.' is used at a wrong position in 'sam.'.
+T1_emailIdValue = sam@gmail.com
+T1_passwordValue = Password@1234
+
+T1_incompleteEmailInputs = sam,sam@,sam@gmail.
+T1_incompleteEmailValidationMsgs = Please include an '@' in the email address. 'sam' is missing an '@'.,Please enter a part following '@'. 'sam@' is incomplete.,'.' is used at a wrong position in 'sam.'.
+
+T2_expectedListCount = 3
+T2_expectedListText = List Item 2
+T2_expectedBadgeValue  =6
+
+T3_lovOption1 = Option 1
+T3_lovOption2 = Option 2
+T3_lovOption3 = Option 3
+
+T6_rowCord = 2
+T6_colCord = 2
+T6_expectedCellValue = Ventosanzap

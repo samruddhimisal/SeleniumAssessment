@@ -1,0 +1,25 @@
+package TestCases;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import Utils.Utilities;
+
+/*Use Cases to be covered
+1. Write a method that allows you to find the value of any cell on the grid
+2. Use the method to find the value of the cell at coordinates 2, 2 (staring at 0 in the top left corner)
+3. Assert that the value of the cell is "Ventosanzap"
+*/
+
+public class Test6 extends Utilities
+{
+
+	@Test
+	public void findTableCellValue()
+	{
+		findCellValue(2,2);
+	}
+}

@@ -1,0 +1,57 @@
+package ResolverPackage;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import xls.ShineXlsReader;
+
+public class ResolverClass 
+{
+	@BeforeMethod
+	public void BeforeTest()
+	{
+		//Open the URL
+	}
+	
+	@AfterMethod
+	public void AfterTest()
+	{
+		//Close the browser
+	}
+
+	
+	@DataProvider
+	public Object[][] getLoginData()
+	{
+		ShineXlsReader xls = new ShineXlsReader("excel_file_path with  double slash");
+		
+		//get the row & col counts
+		int rowCount = xls.getRowCount("LoginCredentials");
+		int colCount = xls.getColumnCount("LoginCredentials");
+		System.out.println("Row Count = "+rowCount);
+		System.out.println("Column Count = "+colCount);		
+		Object obj[][] = new Object[rowCount-1][colCount];
+		
+		//get the sheet data for each row and col
+		for(int i=2;i<=rowCount;i++)
+		{
+			for(int j=0;j<colCount;j++)
+			{
+				obj[i-2][j] = xls.getCellData("LoginCredentials", j, i);
+			}
+		}
+				
+		return obj;
+		
+	}
+	
+	
+	@Test
+	public void importLoginCredsFromExcel()
+	{
+		
+		
+		
+}

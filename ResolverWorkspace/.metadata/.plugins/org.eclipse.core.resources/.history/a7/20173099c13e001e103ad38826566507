@@ -1,0 +1,206 @@
+package Utils;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import TestBase.TestSetup;
+
+public class Utilities extends CommonUtils
+{	
+		//	Test1
+		//	Keyword -- Verify the visibility of sample login form fields
+		public static void verifyLoginForm()
+		{
+			WebElement emailId,password,signInButton;
+			emailId = driver.findElement(By.xpath(prop.getProperty("ip_emailAddress")));
+			password = driver.findElement(By.xpath(prop.getProperty("ip_password"))); 
+			signInButton = driver.findElement(By.xpath(prop.getProperty("btn_signIn")));
+				
+			//Verify that the email address field is visible and insert the user entered value
+			softAssert.assertEquals(true, emailId.isDisplayed(),"Email Id textbox is not displayed."); 
+			softAssert.assertEquals(true, password.isDisplayed(),"Password textbox is not displayed.");
+			softAssert.assertEquals(true, signInButton.isDisplayed(),"Sign in button is not displayed.");
+		}
+		//Keyword -- Verify the login credentials combinations with valid input
+		//UseCase: Input - "sam@gmail.com", Output - Should accept input on button click, clear the input fields
+		public static void verifyForValidCredentials()
+		{
+			WebElement emailIdElement, passwordElement, signInButtonElement;
+			
+			emailIdElement = driver.findElement(By.xpath(prop.getProperty("ip_emailAddress")));
+			passwordElement = driver.findElement(By.xpath(prop.getProperty("ip_password"))); 
+			signInButtonElement = driver.findElement(By.xpath(prop.getProperty("btn_signIn")));
+						
+			emailIdElement.sendKeys(prop.getProperty("T1_validEmailId"));
+			passwordElement.sendKeys(prop.getProperty("T1_validPasswordValue"));
+			signInButtonElement.click();
+			//reinstantiate elements because DOM id changes
+			emailIdElement = driver.findElement(By.xpath(prop.getProperty("ip_emailAddress")));
+			passwordElement = driver.findElement(By.xpath(prop.getProperty("ip_password"))); 
+			String actualEmailPlaceholder = emailIdElement.getAttribute("placeholder");	
+			String actualPasswordPlaceholder = passwordElement.getAttribute("placeholder");
+			softAssert.assertEquals(actualEmailPlaceholder, prop.getProperty("T1_emailPlaceholder"),"Placeholder value not matching. Please check if the email id is invalid.");
+			softAssert.assertEquals(actualPasswordPlaceholder, prop.getProperty("T1_passwordPlaceholder"),"Placeholder value not matching. Please check if the email id is invalid.");
+			
+		}
+		
+		//Keyword -- Verify the login credentials combinations with empty email and/or password input
+		/*
+		 * UseCase1: Input - Empty/No credentials, Output - message: "Please fill out this field."
+		 * UseCase2: Input - Empty email id value, Output - message: "Please fill out this field."
+		 * UseCase3: Input - Empty password value, Output - message: "Please fill out this field."
+		 */
+			public static void verifyForEmptyEmailPassword()
+			{
+				WebElement emailIdElement, passwordElement, signInButtonElement;
+				String actualValidationMsg, emailInputsString, passwordInputsString; 
+				String[] emailInputsArr=null,passwordInputsArr=null;		
+				int emailArrlen, passwordArrlen;
+				
+				emailIdElement = driver.findElement(By.xpath(prop.getProperty("ip_emailAddress")));
+				passwordElement = driver.findElement(By.xpath(prop.getProperty("ip_password"))); 
+				signInButtonElement = driver.findElement(By.xpath(prop.getProperty("btn_signIn")));
+				
+				emailInputsString = prop.getProperty("T1_emptyTestEmails");
+				emailInputsArr = emailInputsString.split(",");
+				passwordInputsString = prop.getProperty("T1_emptyTestPasswords");
+				passwordInputsArr = passwordInputsString.split(",");
+
+				for(int i=0; i<emailInputsArr.length; i++)
+				{
+					emailIdElement.sendKeys(emailInputsArr[i]);
+					passwordElement.sendKeys(passwordInputsArr[i]);
+					signInButtonElement.click();
+					if(emailInputsArr[i] != null)
+					{
+						actualValidationMsg = passwordElement.getAttribute("validationMessage");
+					}
+					else
+					{
+						actualValidationMsg = emailIdElement.getAttribute("validationMessage");
+					}
+					Reporter.log("------ Use cases 1 to 3 ------");
+					Reporter.log("#Input - "+emailInputsArr[i]+","+passwordInputsArr[i]+"<--> Validation - "+prop.getProperty("T1_emptyCredentialsMsg"));
+					softAssert.assertEquals(actualValidationMsg, prop.getProperty("T1_emptyCredentialsMsg"), "Validation message not matching.");
+					emailIdElement.clear();
+					passwordElement.clear();
+				}				
+				
+			}
+			
+			//Keyword -- Verify the login credentials combinations with invalid email inputs
+			/*
+			 * UseCase5: Input - "sam", Output - message: "Please include an '@' in the email address. 'sam' is missing an '@'."
+			 * UseCase6: Input - "sam@", Output - message: "Please enter a part following '@'. 'sam@' is incomplete."
+			 * UseCase7: Input - "sam@gmail.", Output - message:  "'.' is used at a wrong position in 'sam.'."
+			*/
+				public static void verifyForInvalidEmailId()
+				{
+					WebElement emailIdElement, passwordElement, signInButtonElement;
+					String actualValidationMsg, emailInputsString; 
+					String[] emailInputsArr=null;
+					
+					emailIdElement = driver.findElement(By.xpath(prop.getProperty("ip_emailAddress")));
+					passwordElement = driver.findElement(By.xpath(prop.getProperty("ip_password"))); 
+					signInButtonElement = driver.findElement(By.xpath(prop.getProperty("btn_signIn")));
+					
+					emailInputsString = prop.getProperty("T1_incompleteEmailInputs");
+					emailInputsArr = emailInputsString.split(",");
+					
+					String incompleteEmailValidationMsgsString = prop.getProperty("T1_incompleteEmailValidationMsgs");
+					String[] incompleteEmailValidationMsgsArr = incompleteEmailValidationMsgsString.split(",");
+					
+					int len = emailInputsArr.length;
+					passwordElement.sendKeys(prop.getProperty("T1_validPasswordValue"));
+					for(int i=0; i<len; i++)
+					{
+						emailIdElement.sendKeys(emailInputsArr[i]);
+						signInButtonElement.click();
+						actualValidationMsg = emailIdElement.getAttribute("validationMessage");
+						Reporter.log("------ Use cases 4 to 6 ------");
+						Reporter.log("#Input - "+emailInputsArr[i]+"<--> Validation - "+incompleteEmailValidationMsgsArr[i]);
+						softAssert.assertEquals(actualValidationMsg, incompleteEmailValidationMsgsArr[i], "Validation message not matching.");
+						emailIdElement.clear();			
+					}
+					passwordElement.clear();			
+					
+				}
+
+
+	
+	// Test 3
+	public static void verifyDefaultSelectedValue()
+	{
+		WebElement btn_LOV = driver.findElement(By.xpath(prop.getProperty("btn_LOV")));
+		
+		if(btn_LOV.isDisplayed() && btn_LOV.isEnabled())
+		{
+			String actualLOVvalue = driver.findElement(By.xpath(prop.getProperty("btn_LOV"))).getText();
+			softAssert.assertEquals(actualLOVvalue, prop.getProperty("T3_lovOption1"), "The default value in LOV doesn't match with expected value.");	
+		}
+		else
+		{
+			System.out.println("LOV button is not visible");
+		}
+	}
+	
+	public static void selectOptionFromLOV(String option)
+	{
+		WebElement btn_LOV = driver.findElement(By.xpath(prop.getProperty("btn_LOV")));
+		if(btn_LOV.isDisplayed() && btn_LOV.isEnabled())
+		{
+			btn_LOV.click();
+			//create a list of the shown values in the drop-down
+			List<WebElement> list = driver.findElements(By.xpath(prop.getProperty("link_LOV")));
+			
+			//loop through the list to find "Option 3". If found, break the loop.
+			for(WebElement elem : list){
+				if(option.equals(elem.getText())){
+					elem.click();
+					break;
+				}
+			}
+			//fetch the newly selected value
+			btn_LOV = driver.findElement(By.xpath(prop.getProperty("btn_LOV")));
+			//check if the newly selected value is correct
+			softAssert.assertEquals(btn_LOV, option,"Expected value is not selected.");
+		}
+		
+	}
+	
+	
+	//Test 6
+	//method to find the value of the cell at coordinates 2, 2
+	public static String findCellValue(int rowCoordinate, int colCoordinate)
+	{
+		WebElement table = driver.findElement(By.xpath(prop.getProperty("tb_table")));
+		List<WebElement> rowsList = table.findElements(By.xpath(prop.getProperty("tbl_bodyRows")));
+		List<WebElement> columnsList = null;
+		int rowCount = 0, colCount = 0;
+               
+		for (WebElement row : rowsList)
+        {            	   
+             columnsList = row.findElements(By.tagName("td"));
+                 
+             for (WebElement column : columnsList) 
+             {
+              	if(rowCoordinate == rowCount && colCoordinate == colCount)
+              	{
+                 	return column.getText();
+                 }
+                           	
+                    colCount++;
+              }
+                   rowCount++;
+                   colCount = 0;
+         }
+         return null;      
+	}
+
+	
+}

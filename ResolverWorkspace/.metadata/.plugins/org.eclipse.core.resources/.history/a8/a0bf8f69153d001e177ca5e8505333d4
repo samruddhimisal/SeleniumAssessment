@@ -1,0 +1,20 @@
+package ResolverPackage;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+public class ResolverClass 
+{
+	@BeforeMethod
+	public void BeforeTest()
+	{
+		//Open the URL
+	}
+	
+	@AfterMethod
+	public void AfterTest()
+	{
+		//Close the browser
+	}
+
+}

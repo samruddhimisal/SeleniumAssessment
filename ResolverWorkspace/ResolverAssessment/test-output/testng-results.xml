@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+    <line>
+      <![CDATA[Home Page is visible.]]>
+    </line>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="6373" started-at="2023-08-20T01:53:03Z" finished-at="2023-08-20T01:53:09Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="6373" started-at="2023-08-20T01:53:03Z" finished-at="2023-08-20T01:53:09Z">
+      <class name="TestCases.Test1">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:TestCases.Test1@64bfbc86]" name="openBrowser" is-config="true" duration-ms="2871" started-at="2023-08-20T01:53:03Z" finished-at="2023-08-20T01:53:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="loginFormVisibility()[pri:0, instance:TestCases.Test1@64bfbc86]" name="loginFormVisibility" duration-ms="213" started-at="2023-08-20T01:53:06Z" finished-at="2023-08-20T01:53:06Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Home Page is visible.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- loginFormVisibility -->
+        <test-method status="PASS" signature="loginValidations()[pri:0, instance:TestCases.Test1@64bfbc86]" name="loginValidations" duration-ms="1568" started-at="2023-08-20T01:53:06Z" finished-at="2023-08-20T01:53:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginValidations -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:TestCases.Test1@64bfbc86]" name="closeBrowser" is-config="true" duration-ms="1702" started-at="2023-08-20T01:53:08Z" finished-at="2023-08-20T01:53:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- TestCases.Test1 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

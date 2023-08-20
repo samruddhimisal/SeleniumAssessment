@@ -1,0 +1,11 @@
+T2_expectedListCount = 3
+T2_expectedListText = List Item 2
+T2_expectedBadgeValue  =6
+
+T3_lovOption1 = Option 1
+T3_lovOption2 = Option 2
+T3_lovOption3 = Option 3
+
+T6_rowCord = 2
+T6_colCord = 2
+T6_expectedCellValue = Ventosanzap

@@ -1,0 +1,37 @@
+browser=chrome
+url=C:/Users/panth/Downloads/Resumes/Samruddhi/Resolver/QE-index.html
+
+#Links
+link_testPage = //a[text()='Test Page']
+link_homePage = //a[text()='Home ']
+link_LOV = //div[@id='test-3-div']/div/div/a
+
+#Input fields
+ip_emailAddress = //input[@id='inputEmail']
+ip_password = //input[@id='inputPassword']
+
+#Buttons
+btn_signIn = //div[@id='test-1-div']/form/button
+btn_LOV = //button[@id='dropdownMenuButton']
+btn_primaryTest4Button = //div[@id='test-4-div']/button[1]
+btn_secondaryTest4Button = //div[@id='test-4-div']/button[2]
+btn_primaryTest5Button = //button[@id='test5-button']
+
+#List items
+list_item = //div[@id='test-2-div']/ul/li
+list_itemBadge = //div[@id='test-2-div']/ul/li
+
+#Headers
+h_test1Header = //div[@id='test-1-div']/h1
+h_test2Header = //div[@id='test-2-div']/h1
+h_test3Header = //div[@id='test-3-div']/h1
+h_test4Header = //div[@id='test-4-div']/h1
+h_test5Header = //div[@id='test-5-div']/h1
+h_test6Header = //div[@id='test-6-div']/h1
+
+#Message
+m_btnConfirmationMsg = //div[@id='test5-alert']
+
+#Table
+tb_table = //table[contains(@class,'table-bordered')]
+tbl_bodyRows = //div[@id='test-6-div']/div/table/tbody/tr

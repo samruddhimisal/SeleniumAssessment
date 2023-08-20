@@ -1,0 +1,48 @@
+package Utils;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import TestBase.TestSetup;
+
+public class CommonUtils extends TestSetup
+{
+	//Function to scroll to a particular form in the page
+	public static void scrollToAForm(WebElement element) throws Throwable
+	{
+		Thread.sleep(2000);
+		((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
+		
+		//Verify that the Form Header for the test is visible
+		verifyHeaderVisibility(element);
+		
+	}
+	
+	//Function to verify the Form Header visibility
+		public static void verifyHeaderVisibility(WebElement element)
+		{					
+			softAssert.assertEquals(true, element.isDisplayed(), element.getText()+" form header is not visible.");
+		}
+		
+	//Function to navigate to the home Page
+		public static void navigateToHome()
+		{
+			//Verify that the 'Home' hyperlink is visible and then Navigate to the Home page			
+			WebElement homePage = driver.findElement(By.xpath(prop.getProperty("link_homePage")));
+			try
+			{
+				Assert.assertEquals(true, homePage.isDisplayed());
+				Reporter.log("Home Page is visible.");
+			}
+			catch(Throwable t)
+			{
+				Reporter.log("Home Page is not visible.");
+			}
+			homePage.click();
+		}	
+}

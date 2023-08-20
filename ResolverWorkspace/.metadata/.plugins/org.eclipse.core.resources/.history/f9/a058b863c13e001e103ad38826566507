@@ -1,0 +1,31 @@
+package TestCases;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import Utils.Utilities;
+
+/*Use Cases to be covered
+1. In the test 4 div, assert that the first button is enabled and that the second button is disabled
+*/
+
+public class Test4 extends Utilities,CommonUtils
+{
+	@Test
+	public void verifyBtnEnabledDisabled() throws Throwable
+	{
+		//Navigate to the home page
+		navigateToHome();
+		
+		//Scroll to the Test4 form
+		scrollToAForm(driver.findElement(By.xpath(prop.getProperty("h_test4Header"))));
+		
+		WebElement btn = driver.findElement(By.xpath(prop.getProperty("btn_primaryTest4Button")));
+		softAssert.assertEquals(btn.isEnabled(), true);
+		btn = driver.findElement(By.xpath(prop.getProperty("btn_secondaryTest4Button")));
+		softAssert.assertEquals(btn.isEnabled(), false);
+	}
+}

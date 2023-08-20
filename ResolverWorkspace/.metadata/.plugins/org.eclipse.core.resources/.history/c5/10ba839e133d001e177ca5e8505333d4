@@ -1,0 +1,13 @@
+package ResolverPackage;
+
+import org.testng.annotations.BeforeMethod;
+
+public class ResolverClass 
+{
+	@BeforeMethod
+	public void BeforeTest()
+	{
+		
+	}
+
+}

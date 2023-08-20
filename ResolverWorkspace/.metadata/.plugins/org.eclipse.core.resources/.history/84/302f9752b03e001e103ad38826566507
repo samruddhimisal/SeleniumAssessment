@@ -1,0 +1,135 @@
+package TestCases;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Reporter;
+
+/*Use Cases to be covered
+1. Navigate to Home Page
+2. Assert that both the email address and password inputs are present as well as the login button
+3. Enter in an email address and password combination into the respective fields 
+	2.1. empty credentials -- o/p= alert: "Please fill out this field."
+	2.2. empty email id -- o/p= alert: "Please fill out this field."
+	2.3. empty password  -- o/p= alert: "Please fill out this field."
+	2.4. email id validations-- 
+		(UseCase_3.1.1) ip = sam o/p= alert: "Please include an '@' in the email address. 'sam' is missing an '@'."
+		(UseCase_3.1.2) ip = sam@ o/p= alert: "Please enter a part following '@'. 'sam@' is incomplete."		
+		(UseCase_3.1.3) ip = sam@gmail. o/p= alert: "'.' is used at a wrong position in 'sam.'."
+		(UseCase_3.1.4) ip = sam@gmail.com o/p= valid input. fields should be cleared and should show placeholder values
+*/
+		
+import org.testng.annotations.Test;
+import Utils.Utilities;
+
+public class Test1 extends Utilities
+{	
+	@Test
+	public void verifyLoginFields()
+	{
+		//Navigate to the home page
+		navigateToHome();
+				
+		WebElement emailId,password,signInButton;
+		emailId = driver.findElement(By.xpath(prop.getProperty("ip_emailAddress")));
+		password = driver.findElement(By.xpath(prop.getProperty("ip_password"))); 
+		signInButton = driver.findElement(By.xpath(prop.getProperty("btn_signIn")));
+				
+		//Verify that the email address field is visible and insert the user entered value
+		softAssert.assertEquals(true, emailId.isDisplayed(),"Email Id textbox is not displayed."); 
+		softAssert.assertEquals(true, password.isDisplayed(),"Password textbox is not displayed.");
+		softAssert.assertEquals(true, signInButton.isDisplayed(),"Sign in button is not displayed.");
+	}
+	
+	@Test
+	public void loginValidations() throws Throwable
+	{
+		WebElement emailIdElement,passwordElement,signInButtonElement;
+		String actualValidationMsg, emailInputsString,passwordInputsString; 
+		String[] emailInputsArr=null,passwordInputsArr=null;		
+		int emailArrlen, passwordArrlen;
+		
+		emailIdElement = driver.findElement(By.xpath(prop.getProperty("ip_emailAddress")));
+		passwordElement = driver.findElement(By.xpath(prop.getProperty("ip_password"))); 
+		signInButtonElement = driver.findElement(By.xpath(prop.getProperty("btn_signIn")));
+		
+		//UseCase1: Input - "sam@gmail.com", Output - Should accept input on button click, clear the input fields
+		emailIdElement.sendKeys(prop.getProperty("T1_validEmailId"));
+		passwordElement.sendKeys(prop.getProperty("T1_validPasswordValue"));
+		signInButtonElement.click();
+		//reinstantiate elements because DOM id changes
+		emailIdElement = driver.findElement(By.xpath(prop.getProperty("ip_emailAddress")));
+		passwordElement = driver.findElement(By.xpath(prop.getProperty("ip_password"))); 
+		String actualEmailPlaceholder = emailIdElement.getAttribute("placeholder");	
+		String actualPasswordPlaceholder = passwordElement.getAttribute("placeholder");
+		softAssert.assertEquals(actualEmailPlaceholder, prop.getProperty("T1_emailPlaceholder"),"Placeholder value not matching. Please check if the email id is invalid.");
+		softAssert.assertEquals(actualPasswordPlaceholder, prop.getProperty("T1_passwordPlaceholder"),"Placeholder value not matching. Please check if the email id is invalid.");
+		
+		/*
+		 * UseCase2: Input - Empty/No credentials, Output - message: "Please fill out this field."
+		 * UseCase3: Input - Empty email id value, Output - message: "Please fill out this field."
+		 * UseCase4: Input - Empty password value, Output - message: "Please fill out this field."
+		 */
+		emailInputsString = prop.getProperty("T1_emptyTestEmails");
+		emailInputsArr = emailInputsString.split(",");
+//		for(String arr : emailInputsArr)
+//		{
+//			System.out.println("arr1 = "+arr);
+//		}
+//		
+//		passwordInputsString = prop.getProperty("T1_emptyTestPasswords");
+//		passwordInputsArr = passwordInputsString.split(",");
+//		for(String arr : passwordInputsArr)
+//		{
+//			System.out.println("arr2 = "+arr);
+//		}
+		signInButtonElement = driver.findElement(By.xpath(prop.getProperty("btn_signIn")));
+		for(int i=0; i<emailInputsArr.length; i++)
+		{
+			emailIdElement.sendKeys(emailInputsArr[i]);
+			passwordElement.sendKeys(passwordInputsArr[i]);
+			signInButtonElement.click();
+			if(emailInputsArr[i] != null)
+			{
+				actualValidationMsg = passwordElement.getAttribute("validationMessage");
+			}
+			else
+			{
+				actualValidationMsg = emailIdElement.getAttribute("validationMessage");
+			}
+			Reporter.log("------ Use cases 1 to 3 ------");
+			Reporter.log("#Input - "+emailInputsArr[i]+","+passwordInputsArr[i]+"<--> Validation - "+prop.getProperty("T1_emptyCredentialsMsg"));
+			softAssert.assertEquals(actualValidationMsg, prop.getProperty("T1_emptyCredentialsMsg"), "Validation message not matching.");
+			emailIdElement.clear();
+			passwordElement.clear();
+		}
+		
+	
+		/*
+		 * UseCase5: Input - "sam", Output - message: "Please include an '@' in the email address. 'sam' is missing an '@'."
+		 * UseCase6: Input - "sam@", Output - message: "Please enter a part following '@'. 'sam@' is incomplete."
+		 * UseCase7: Input - "sam@gmail.", Output - message:  "'.' is used at a wrong position in 'sam.'."
+		*/
+		
+		emailInputsString = prop.getProperty("T1_incompleteEmailInputs");
+		emailInputsArr = emailInputsString.split(",");
+		
+		String incompleteEmailValidationMsgsString = prop.getProperty("T1_incompleteEmailValidationMsgs");
+		String[] incompleteEmailValidationMsgsArr = incompleteEmailValidationMsgsString.split(",");
+		
+		int len = emailInputsArr.length;
+		passwordElement.sendKeys(prop.getProperty("T1_validPasswordValue"));
+		for(int i=0; i<len; i++){
+			emailIdElement.sendKeys(emailInputsArr[i]);
+			signInButtonElement.click();
+			actualValidationMsg = emailIdElement.getAttribute("validationMessage");
+			Reporter.log("------ Use cases 4 to 6 ------");
+			Reporter.log("#Input - "+emailInputsArr[i]+"<--> Validation - "+incompleteEmailValidationMsgsArr[i]);
+			softAssert.assertEquals(actualValidationMsg, incompleteEmailValidationMsgsArr[i], "Validation message not matching.");
+			emailIdElement.clear();
+		}
+		
+	}
+	
+}

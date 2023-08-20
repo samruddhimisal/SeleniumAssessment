@@ -1,0 +1,38 @@
+package ResolverPackage;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import xls.ShineXlsReader;
+
+public class ResolverClass 
+{
+	@BeforeMethod
+	public void BeforeTest()
+	{
+		//Open the URL
+	}
+	
+	@AfterMethod
+	public void AfterTest()
+	{
+		//Close the browser
+	}
+
+	@Test
+	public void importFromExcel()
+	{
+		ShineXlsReader xls = new ShineXlsReader("excel_file_path with  double slash");
+		
+		//get the row & col counts
+		int rowCount = xls.getRowCount("LoginCredentials");
+		int colCount = xls.getColumnCount("LoginCredentials");
+		System.out.println("Row Count = "+rowCount);
+		System.out.println("Column Count = "+colCount);
+		
+		//get the sheet data for each row and col
+		
+		
+	}
+}

@@ -1,0 +1,48 @@
+package TestCases;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import Utils.Utilities;
+
+/*Use Cases to be covered
+1. In the test 3 div, assert that "Option 1" is the default selected value
+2. Select "Option 3" from the select list
+*/
+
+public class Test3 extends Utilities
+{	
+	WebElement btn_LOV = driver.findElement(By.xpath(prop.getProperty("btn_LOV")));
+	//Verify that the Test Header is visible
+//	@BeforeTest
+//	public void verifyHeaderVisibility()
+//	{
+//		WebElement testHeader = driver.findElement(By.xpath(prop.getProperty("h_test3Header")));
+//		softAssert.assertEquals(true, testHeader.isDisplayed(), "Test3 Header is not visible.");
+	
+//	}
+	
+	@Test
+	public void verifyDefaultSelectedValue()
+	{			
+		if(btn_LOV.isDisplayed() && btn_LOV.isEnabled())
+		{
+			String actualLOVvalue = driver.findElement(By.xpath(prop.getProperty("btn_LOV"))).getText();
+			softAssert.assertEquals(actualLOVvalue, prop.getProperty("T3_expectedDefaultLOV"), "The default value in LOV doesn't match with expected value.");	
+		}
+		else
+		{
+			System.out.println("LOV button is not visible");
+		}
+	}
+	
+	@Test
+	public void selectLOVvalue()
+	{		
+		driver.findElement(By.xpath(prop.getProperty("btn_LOV")));
+		softAssert.assertEquals(actualLOVvalue, prop.getProperty("T3_expectedDefaultLOV"), "The default value in LOV doesn't match with expected value.");	
+	}
+	
+}

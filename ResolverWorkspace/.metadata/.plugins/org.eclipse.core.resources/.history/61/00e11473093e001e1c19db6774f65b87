@@ -1,0 +1,62 @@
+package TestCases;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.Reporter;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import Utils.Utilities;
+
+/*
+ * Use Cases to be covered
+1. In the test 2 div, assert that there are three values in the listgroup
+2. Assert that the second list item's value is set to "List Item 2"
+3. Assert that the second list item's badge value is 6
+*/
+
+public class Test2 extends Utilities
+{							
+	@Test
+	public void tc1_verifyListItemsCount() throws Throwable
+	{		
+
+		//Navigate to the home page
+		navigateToHome();
+		
+		//Scroll to the Test2 form
+		scrollToAForm(driver.findElement(By.xpath(prop.getProperty("h_test4Header"))));
+		
+		List<WebElement> list = driver.findElements(By.xpath(prop.getProperty("list_item")));
+		int actualListCount = list.size();
+		//System.out.println(list.size());
+		softAssert.assertEquals(actualListCount, Integer.parseInt(prop.getProperty("T2_expectedListCount")), "Total list count is not matching.");	
+		softAssert.assertAll();
+		
+
+	}
+	
+	@Test
+	public void tc2_verifyListItemText() throws Throwable
+	{		
+		String itemList2Value = driver.findElement(By.xpath(prop.getProperty("list_item'[2]'"))).getText();
+		String itemList2Badge = driver.findElement(By.xpath(prop.getProperty("list_item2Badge"))).getText();
+		String actualListText = itemList2Value.replace(itemList2Badge, "").trim();
+		//System.out.println("itemList2Value="+itemList2Value);
+		
+		softAssert.assertEquals(actualListText, prop.getProperty("T2_expectedListText"), "The list text doesn't match with expected text value.");	
+		softAssert.assertAll();
+	}
+	
+	@Test
+	public void tc3_verifyListItemBadgeValue() throws Throwable
+	{		
+		int actualBadgeValue = Integer.parseInt(driver.findElement(By.xpath(prop.getProperty("list_item2Badge"))).getText());
+		softAssert.assertEquals(actualBadgeValue, prop.getProperty("T2_expectedBadgeValue"), "The list badge doesn't match with expected badge value.");	
+
+	}	
+	
+	
+}

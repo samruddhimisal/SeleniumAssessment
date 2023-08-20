@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>.org.eclipse.jdt.core.external.folders</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>.link0</name>
+			<type>2</type>
+			<location>C:/Users/panth/Downloads/Resumes/Samruddhi/Selenium/Sources/eclipse/configuration/org.eclipse.osgi/987/0/.cp</location>
+		</link>
+		<link>
+			<name>.link1</name>
+			<type>2</type>
+			<location>C:/Users/panth/Downloads/Resumes/Samruddhi/Selenium/Sources/apache-log4j-2.20.0-bin/apache-log4j-2.20.0-bin</location>
+		</link>
+	</linkedResources>
+</projectDescription>

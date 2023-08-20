@@ -1,0 +1,35 @@
+package TestCases;
+
+import org.openqa.selenium.By;
+import org.testng.annotations.Test;
+
+import Utils.Utilities;
+
+/*Use Cases to be covered
+1. In the test 3 div, assert that "Option 1" is the default selected value
+2. Select "Option 3" from the select list
+*/
+
+public class Test3 extends Utilities
+{	
+			
+	@Test
+	public void verifyDefaultLovValue() throws Throwable
+	{		
+		//Navigate to the home page
+		navigateToHome();
+				
+		//Scroll to the Test3 form
+		scrollToAForm(driver.findElement(By.xpath(paramProp.getProperty("h_test3Header"))));
+		
+		//Verify the default selected option in dropdown
+		verifyDefaultSelectedValue();
+	}
+	
+	@Test
+	public void selectLOVvalue()
+	{		
+		selectOptionFromLOV(prop.getProperty("T3_lovOption3"));
+	}
+	
+}

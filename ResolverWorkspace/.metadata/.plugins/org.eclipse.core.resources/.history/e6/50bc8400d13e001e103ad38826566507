@@ -1,0 +1,33 @@
+package TestCases;
+
+import org.testng.annotations.Test;
+import org.openqa.selenium.By;
+//packages to use explicit wait
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import Utils.Utilities;
+
+/*Use Cases to be covered
+1. In the test 5 div, wait for a button to be displayed (note: the delay is random) and then click it
+2. Once you've clicked the button, assert that a success message is displayed
+3. Assert that the button is now disabled
+*/
+
+public class Test5 extends Utilities
+{
+	@Test
+	public void delayedButtonValidation() throws Throwable
+	{
+		//Navigate to the home page
+		navigateToHome();
+		
+		//Scroll to the Test5 form
+		scrollToAForm(driver.findElement(By.xpath(prop.getProperty("h_test5Header"))));
+		
+		//wait till the button is displayed, once displayed click on it and verify the message
+		verifyDelayedBtnMsg();
+	}
+	
+	
+}

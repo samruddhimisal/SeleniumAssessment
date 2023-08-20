@@ -1,0 +1,15 @@
+browser=chrome
+url=C:/Users/panth/Downloads/Resumes/Samruddhi/Resolver/QE-index.html
+
+#Test Page
+txt_testPage = navbar-brand
+
+#Input fields
+ip_emailAddress = //input[@id='inputEmail'
+ip_password = //input[@id='inputPassword'
+
+#Buttons
+btn_signIn = //div[@id='test-1-div']/form/button
+btn_primaryTest4Button = //div[@id='test-4-div']/button[1]
+btn_secondaryTest4Button = //div[@id='test-4-div']/button[2]
+btn_primaryTest5Button = //button[@id='test5-button']
