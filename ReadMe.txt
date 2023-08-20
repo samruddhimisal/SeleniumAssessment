@@ -10,10 +10,10 @@ This project is about automating a test page using Selenium Webdriver.
     (3.1) chromedriver: v114.0.5735.90 (32-bit) - https://chromedriver.storage.googleapis.com/index.html?path=114.0.5735.90/
     (3.2) geckodriver: v0.33.0 (64-bit) - https://github.com/mozilla/geckodriver/releases/tag/v0.33.0
 Note: Set the environment variables for drivers in your machine
-(4) Libraries:
-    (4.1) Selenium
+(4) Libraries: 
+    (4.1) Selenium (Eclipse: Go to Project Properties -> Java Build Path -> Add External Libraries -> Select all Selenium jars -> Apply and Save)
     (4.2) TestNG (Eclipse: Go to Project Properties -> Add Library -> TestNG) 
-    _To Install TestNG, in eclipse_: Go to Help -> Eclipse Marketplace -> Search 'testNG' and Install    
+     To Install TestNG, in eclipse: Go to Help -> Eclipse Marketplace -> Search 'testNG' and Install   
 
 **Project Structure and Details**
 (1) ResolverAssessment -> src -> Properties: This package contains properties files as follows-
