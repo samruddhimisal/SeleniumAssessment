@@ -6,7 +6,6 @@
       <class name="TestCases.Test1">
         <methods>
           <include name="openBrowser"/>
-          <include name="loginFormVisibility"/>
           <include name="loginValidations"/>
           <include name="closeBrowser"/>
         </methods>

@@ -3,12 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/panth/Downloads/Resumes/Samruddhi/Selenium/Sources/ExcelJars/ShineXLS.jar"/>
-	<classpathentry kind="lib" path="C:/Users/panth/Downloads/Resumes/Samruddhi/Selenium/Sources/ExcelJars/xmlbeans-2.3.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/panth/Downloads/Resumes/Samruddhi/Selenium/Sources/ExcelJars/dom4j-1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/panth/Downloads/Resumes/Samruddhi/Selenium/Sources/ExcelJars/poi-ooxml-schemas-3.6-20091214.jar"/>
-	<classpathentry kind="lib" path="C:/Users/panth/Downloads/Resumes/Samruddhi/Selenium/Sources/ExcelJars/poi-ooxml-3.6-20091214.jar"/>
-	<classpathentry kind="lib" path="C:/Users/panth/Downloads/Resumes/Samruddhi/Selenium/Sources/ExcelJars/poi-3.6-20091214.jar"/>
 	<classpathentry kind="lib" path="C:/Users/panth/Downloads/Resumes/Samruddhi/Selenium/Sources/selenium-java-4.8.0-jars/lib/async-http-client-2.12.3.jar"/>
 	<classpathentry kind="lib" path="C:/Users/panth/Downloads/Resumes/Samruddhi/Selenium/Sources/selenium-java-4.8.0-jars/lib/async-http-client-netty-utils-2.12.3.jar"/>
 	<classpathentry kind="lib" path="C:/Users/panth/Downloads/Resumes/Samruddhi/Selenium/Sources/selenium-java-4.8.0-jars/lib/auto-common-1.2.1.jar"/>
@@ -90,6 +84,5 @@
 	<classpathentry kind="lib" path="C:/Users/panth/Downloads/Resumes/Samruddhi/Selenium/Sources/selenium-java-4.8.0-jars/lib/selenium-support-4.8.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/panth/Downloads/Resumes/Samruddhi/Selenium/Sources/selenium-java-4.8.0-jars/lib/selenium-support-4.8.0-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/panth/Downloads/Resumes/Samruddhi/Selenium/Sources/selenium-java-4.8.0-jars/lib/slf4j-api-2.0.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/panth/Downloads/Resumes/Samruddhi/Selenium/Sources/apache-log4j-2.20.0-bin/apache-log4j-2.20.0-bin"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

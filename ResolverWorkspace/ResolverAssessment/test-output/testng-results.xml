@@ -1,35 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="8" passed="8">
   <reporter-output>
     <line>
       <![CDATA[Home Page is visible.]]>
     </line>
+    <line>
+      <![CDATA[Home Page is visible.]]>
+    </line>
+    <line>
+      <![CDATA[Home Page is visible.]]>
+    </line>
+    <line>
+      <![CDATA[Home Page is visible.]]>
+    </line>
+    <line>
+      <![CDATA[Home Page is visible.]]>
+    </line>
+    <line>
+      <![CDATA[Home Page is visible.]]>
+    </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="6373" started-at="2023-08-20T01:53:03Z" finished-at="2023-08-20T01:53:09Z">
+  <suite name="Suite" duration-ms="34492" started-at="2023-08-21T15:14:03Z" finished-at="2023-08-21T15:14:38Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="6373" started-at="2023-08-20T01:53:03Z" finished-at="2023-08-20T01:53:09Z">
+    <test name="Test" duration-ms="34492" started-at="2023-08-21T15:14:03Z" finished-at="2023-08-21T15:14:38Z">
       <class name="TestCases.Test1">
-        <test-method status="PASS" signature="openBrowser()[pri:0, instance:TestCases.Test1@64bfbc86]" name="openBrowser" is-config="true" duration-ms="2871" started-at="2023-08-20T01:53:03Z" finished-at="2023-08-20T01:53:06Z">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:TestCases.Test1@6adede5]" name="openBrowser" is-config="true" duration-ms="2380" started-at="2023-08-21T15:14:03Z" finished-at="2023-08-21T15:14:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method status="PASS" signature="loginFormVisibility()[pri:0, instance:TestCases.Test1@64bfbc86]" name="loginFormVisibility" duration-ms="213" started-at="2023-08-20T01:53:06Z" finished-at="2023-08-20T01:53:06Z">
+        <test-method status="PASS" signature="loginFormVisibility()[pri:0, instance:TestCases.Test1@6adede5]" name="loginFormVisibility" duration-ms="208" started-at="2023-08-21T15:14:06Z" finished-at="2023-08-21T15:14:06Z">
           <reporter-output>
             <line>
               <![CDATA[Home Page is visible.]]>
             </line>
           </reporter-output>
         </test-method> <!-- loginFormVisibility -->
-        <test-method status="PASS" signature="loginValidations()[pri:0, instance:TestCases.Test1@64bfbc86]" name="loginValidations" duration-ms="1568" started-at="2023-08-20T01:53:06Z" finished-at="2023-08-20T01:53:08Z">
+        <test-method status="PASS" signature="loginValidations()[pri:0, instance:TestCases.Test1@6adede5]" name="loginValidations" duration-ms="1335" started-at="2023-08-21T15:14:06Z" finished-at="2023-08-21T15:14:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginValidations -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:TestCases.Test1@64bfbc86]" name="closeBrowser" is-config="true" duration-ms="1702" started-at="2023-08-20T01:53:08Z" finished-at="2023-08-20T01:53:09Z">
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:TestCases.Test1@6adede5]" name="closeBrowser" is-config="true" duration-ms="1654" started-at="2023-08-21T15:14:07Z" finished-at="2023-08-21T15:14:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
       </class> <!-- TestCases.Test1 -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      <class name="TestCases.Test2">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:TestCases.Test2@2d928643]" name="openBrowser" is-config="true" duration-ms="1372" started-at="2023-08-21T15:14:09Z" finished-at="2023-08-21T15:14:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="listGroupValidations()[pri:0, instance:TestCases.Test2@2d928643]" name="listGroupValidations" duration-ms="191" started-at="2023-08-21T15:14:10Z" finished-at="2023-08-21T15:14:10Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Home Page is visible.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- listGroupValidations -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:TestCases.Test2@2d928643]" name="closeBrowser" is-config="true" duration-ms="1663" started-at="2023-08-21T15:14:10Z" finished-at="2023-08-21T15:14:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- TestCases.Test2 -->
+      <class name="TestCases.Test3">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:TestCases.Test3@5025a98f]" name="openBrowser" is-config="true" duration-ms="1252" started-at="2023-08-21T15:14:12Z" finished-at="2023-08-21T15:14:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="selectLOVvalue()[pri:0, instance:TestCases.Test3@5025a98f]" name="selectLOVvalue" duration-ms="204" started-at="2023-08-21T15:14:13Z" finished-at="2023-08-21T15:14:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- selectLOVvalue -->
+        <test-method status="PASS" signature="verifyDefaultLovValue()[pri:0, instance:TestCases.Test3@5025a98f]" name="verifyDefaultLovValue" duration-ms="1138" started-at="2023-08-21T15:14:13Z" finished-at="2023-08-21T15:14:15Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Home Page is visible.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyDefaultLovValue -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:TestCases.Test3@5025a98f]" name="closeBrowser" is-config="true" duration-ms="1660" started-at="2023-08-21T15:14:15Z" finished-at="2023-08-21T15:14:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- TestCases.Test3 -->
+      <class name="TestCases.Test4">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:TestCases.Test4@49993335]" name="openBrowser" is-config="true" duration-ms="1301" started-at="2023-08-21T15:14:16Z" finished-at="2023-08-21T15:14:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyButtons()[pri:0, instance:TestCases.Test4@49993335]" name="verifyButtons" duration-ms="1211" started-at="2023-08-21T15:14:18Z" finished-at="2023-08-21T15:14:19Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Home Page is visible.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyButtons -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:TestCases.Test4@49993335]" name="closeBrowser" is-config="true" duration-ms="1689" started-at="2023-08-21T15:14:19Z" finished-at="2023-08-21T15:14:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- TestCases.Test4 -->
+      <class name="TestCases.Test5">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:TestCases.Test5@20322d26]" name="openBrowser" is-config="true" duration-ms="1305" started-at="2023-08-21T15:14:20Z" finished-at="2023-08-21T15:14:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="delayedButtonValidation()[pri:0, instance:TestCases.Test5@20322d26]" name="delayedButtonValidation" duration-ms="10072" started-at="2023-08-21T15:14:22Z" finished-at="2023-08-21T15:14:32Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Home Page is visible.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- delayedButtonValidation -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:TestCases.Test5@20322d26]" name="closeBrowser" is-config="true" duration-ms="1641" started-at="2023-08-21T15:14:32Z" finished-at="2023-08-21T15:14:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- TestCases.Test5 -->
+      <class name="TestCases.Test6">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:TestCases.Test6@192b07fd]" name="openBrowser" is-config="true" duration-ms="1288" started-at="2023-08-21T15:14:33Z" finished-at="2023-08-21T15:14:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="findAndVerifyTableCellValue()[pri:0, instance:TestCases.Test6@192b07fd]" name="findAndVerifyTableCellValue" duration-ms="1207" started-at="2023-08-21T15:14:35Z" finished-at="2023-08-21T15:14:36Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Home Page is visible.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- findAndVerifyTableCellValue -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:TestCases.Test6@192b07fd]" name="closeBrowser" is-config="true" duration-ms="1690" started-at="2023-08-21T15:14:36Z" finished-at="2023-08-21T15:14:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- TestCases.Test6 -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

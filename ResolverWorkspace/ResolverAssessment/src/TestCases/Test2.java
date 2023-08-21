@@ -1,4 +1,8 @@
 package TestCases;
+/*
+ * Approach-2 :
+ * Arrange, act and assert are performed in utilities java file.
+ */
 
 import org.testng.annotations.Test;
 import Utils.TestUtils;
