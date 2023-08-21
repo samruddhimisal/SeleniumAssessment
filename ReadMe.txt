@@ -1,5 +1,12 @@
 **Project Description**
 This project is about automating a test page using Selenium Webdriver.
+I have used "Arrange, Act, Assert" approach in two different ways in this project. 
+ * Arrange - Taking inputs from the properties files(can be changed as per the requirement by the engineer).
+ * Act - Perform actions(click, send inputs, etc.)
+ * Assert - Verify actual and expected output
+
+Approach-1 : "Test1" follows this approach - arrange and act are performed in the Test case java file, whereas, assertion is performed in utilities java file.
+Approach-2 : All other tests follows this approach - arrange, act and assert are performed in utilities java file.
 
 **Software Requirements**
 (1) Java: Java 8(v1.8.0_202) or higher
